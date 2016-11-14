@@ -212,7 +212,7 @@ prepare()
     find "$SOURCE" -maxdepth 1 -name '*.patch' -delete
     if [ -d $stagedir ]; then
         mkdir $stagedir/_build
-        git -C $stagedir format-patch --output-directory=_build initial..
+        git -C $stagedir format-patch --subject-prefix='' --output-directory=_build initial..
         find $stagedir/_build -type f -exec mv {} "$SOURCE" \;
     fi
 
